@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>404 Not Found</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#8a1a8a; --bg2:#4a0d52; --bg3:#2e0a3d; --cyan:#00f0ff;
+  --ink:#ffe6fb; --ink-soft:#f3d3f1; --line:rgba(255,255,255,.35);
+  --font:"Unbounded","Arial Black","Helvetica Neue",Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  background:
+    radial-gradient(60% 40% at 78% 18%,var(--cyan) 0,rgba(0,240,255,.45) 35%,transparent 70%),
+    radial-gradient(45% 35% at 0% 78%,var(--cyan) 0,rgba(0,240,255,.4) 35%,transparent 70%),
+    radial-gradient(40% 30% at 100% 100%,rgba(0,240,255,.8) 0,transparent 70%),
+    linear-gradient(135deg,var(--bg1),var(--bg2) 55%,var(--bg3));
+  background-color:var(--bg2);
+  color:var(--ink);font-family:var(--font);overflow:hidden;
+}
+.stage{position:relative;height:100%;min-height:560px;display:grid;place-items:center;text-align:center;padding:24px}
+.core{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%}
+.code{display:flex;align-items:flex-end;justify-content:center;font-weight:900;font-size:clamp(84px,24vw,270px);line-height:.8;letter-spacing:-.02em;margin:0;color:var(--ink)}
+.code svg{height:1.02em;width:auto;margin:0 .02em;flex:none}
+h1.sub{font-size:clamp(18px,4.4vw,48px);font-weight:900;margin:.35em 0 0;letter-spacing:-.01em}
+p.msg{max-width:34em;margin:clamp(20px,4vh,44px) auto 0;font-size:clamp(14px,2vw,22px);font-weight:600;line-height:1.6;color:var(--ink-soft)}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.btn{font:700 14px/1 var(--font);color:var(--ink);text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid var(--ink);transition:background .2s,transform .2s}
+.btn.solid{background:var(--ink);color:#4a0d52}
+.btn:hover{transform:translateY(-2px)}
+.btn:not(.solid):hover{background:rgba(255,230,251,.15)}
+.btn:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.float{position:absolute;z-index:1;pointer-events:none;animation:drift 7s ease-in-out infinite}
+.astro{left:7%;top:12%;width:clamp(90px,15vw,210px);animation-duration:8s}
+.rocket{left:6%;top:55%;width:clamp(80px,13vw,190px);animation-duration:6s;animation-delay:-2s}
+.rock1{left:-3%;top:-4%;width:clamp(90px,12vw,190px);animation:none}
+.rock2{right:-3%;top:-4%;width:clamp(130px,18vw,270px);animation:none}
+.rock3{left:15%;bottom:8%;width:clamp(70px,10vw,150px);animation-duration:9s;animation-delay:-4s}
+.planet{right:7%;top:56%;width:clamp(110px,18vw,250px);animation-duration:10s}
+.trail{position:absolute;z-index:1;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.trail path{fill:none;stroke:var(--line);stroke-width:3;stroke-dasharray:10 14;stroke-linecap:round;animation:march 18s linear infinite}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-16px) rotate(3deg)}}
+@keyframes march{to{stroke-dashoffset:-240}}
+@media (max-width:640px){
+  .astro{left:2%;top:6%}.rocket{top:68%;left:3%}.planet{top:70%;right:2%}.rock3{display:none}.trail{opacity:.5}
+}
+@media (prefers-reduced-motion:reduce){.float,.trail path{animation:none}}
+</style>
+</head>
+<body>
+<main class="stage">
+
+  <svg class="trail" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M190 560 C230 640 290 650 300 580 C310 500 330 440 380 460 C440 490 400 700 450 740 C500 780 520 700 500 640 C480 560 520 480 560 500 C640 540 690 610 740 620"/>
+  </svg>
+
+  <!-- asteroids -->
+  <svg class="float rock1" viewBox="0 0 200 200" aria-hidden="true"><path d="M20 10 C80 -10 150 20 175 80 C195 130 150 190 90 185 C30 180 -10 120 5 60 Z" fill="#9b9488"/><path d="M20 10 C60 0 90 20 80 50 C60 80 20 70 5 60 Z" fill="#6e675d"/><circle cx="110" cy="70" r="16" fill="#6e675d"/><circle cx="70" cy="130" r="22" fill="#7b7468"/><circle cx="140" cy="140" r="11" fill="#6e675d"/><circle cx="45" cy="95" r="8" fill="#6e675d"/></svg>
+  <svg class="float rock2" viewBox="0 0 240 240" aria-hidden="true"><path d="M30 40 C70 0 150 -10 205 30 C245 70 250 150 205 205 C160 250 70 245 30 190 C-5 140 0 80 30 40 Z" fill="#a39b8c"/><path d="M30 40 C70 0 150 -10 205 30 C170 60 100 70 60 110 C30 140 20 160 30 190 C-5 140 0 80 30 40 Z" fill="#8a8274"/><circle cx="150" cy="80" r="24" fill="#6e675d"/><circle cx="90" cy="150" r="28" fill="#6e675d"/><circle cx="170" cy="160" r="14" fill="#7b7468"/><circle cx="110" cy="60" r="10" fill="#6e675d"/><circle cx="60" cy="80" r="9" fill="#6e675d"/></svg>
+  <svg class="float rock3" viewBox="0 0 160 160" aria-hidden="true"><path d="M20 50 C40 10 100 0 135 30 C165 60 155 115 120 140 C85 165 30 150 12 110 C2 90 8 70 20 50 Z" fill="#8d857a"/><circle cx="60" cy="60" r="14" fill="#5f594f"/><circle cx="105" cy="95" r="18" fill="#6e675d"/><circle cx="60" cy="115" r="9" fill="#5f594f"/></svg>
+
+  <!-- astronaut -->
+  <svg class="float astro" viewBox="0 0 200 260" aria-label="Floating astronaut" role="img">
+    <defs><filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <g filter="url(#glow)">
+      <rect x="22" y="52" width="46" height="70" rx="14" fill="#3b4fd8"/>
+      <path d="M70 110 L135 95 L170 150 L140 160 L110 135 L90 215 L55 205 Z" fill="#8f86f0"/>
+      <path d="M90 200 L125 215 L150 232 L138 248 L100 236 Z" fill="#5a6cf0"/>
+      <path d="M60 195 L88 205 L72 250 L46 245 Z" fill="#6b79f2"/>
+      <path d="M130 100 L165 70 L178 82 L150 125 Z" fill="#a89ff5"/>
+      <circle cx="104" cy="52" r="42" fill="#b9b0fa"/>
+      <ellipse cx="108" cy="54" rx="30" ry="29" fill="#0b0a3a"/>
+      <path d="M118 40 Q128 48 124 62" stroke="#e8e4ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <rect x="88" y="104" width="24" height="5" rx="2.5" fill="#ffd1f5"/>
+    </g>
+  </svg>
+
+  <!-- rocket -->
+  <svg class="float rocket" viewBox="0 0 220 200" aria-label="Rocket" role="img">
+    <g transform="rotate(-28 110 100)">
+      <path d="M30 100 Q10 100 18 118 Q40 128 62 112 Z" fill="#ffc96b"/>
+      <path d="M66 70 L28 40 L52 90 Z" fill="#6a2a9a"/>
+      <path d="M66 135 L40 172 L80 150 Z" fill="#7a2563"/>
+      <path d="M52 82 C90 50 150 40 202 34 C196 80 160 128 90 134 C66 134 50 116 52 82 Z" fill="#f7e2b8"/>
+      <path d="M150 48 C170 42 190 38 202 34 C198 56 188 78 168 96 C158 80 152 64 150 48 Z" fill="#b6477f"/>
+      <circle cx="108" cy="92" r="20" fill="#a9c6e8" stroke="#6b8fb8" stroke-width="5"/>
+      <circle cx="108" cy="92" r="11" fill="#3c6ea8"/>
+    </g>
+  </svg>
+
+  <!-- ringed planet, dashed circle, warning sign -->
+  <svg class="float planet" viewBox="0 0 260 260" aria-hidden="true">
+    <circle cx="125" cy="125" r="112" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="26 16" stroke-linecap="round"/>
+    <g fill="none" stroke="rgba(255,255,255,.3)" stroke-width="3">
+      <circle cx="128" cy="122" r="50"/>
+      <ellipse cx="128" cy="122" rx="104" ry="32" transform="rotate(25 128 122)"/>
+      <path d="M92 108 Q125 90 160 112 M90 135 Q125 150 165 128"/>
+    </g>
+    <g transform="translate(18 188)">
+      <path d="M40 0 L88 64 L0 70 Z" fill="#1a0a48" stroke="#ff2d55" stroke-width="5" stroke-linejoin="round"/>
+      <rect x="36" y="26" width="8" height="20" rx="3" fill="#0b0a3a"/>
+      <circle cx="40" cy="55" r="4.5" fill="#0b0a3a"/>
+    </g>
+    <g fill="#ffe6fb" stroke="#7a1a9a" stroke-width="1.5" font-family="Unbounded,Arial Black,sans-serif" font-weight="900">
+      <text x="196" y="30" font-size="30" transform="rotate(-8 196 30)">?</text>
+      <text x="224" y="20" font-size="44">?</text>
+      <text x="236" y="58" font-size="26" transform="rotate(14 236 58)">?</text>
+    </g>
+  </svg>
+
+  <!-- main content -->
+  <div class="core">
+    <p class="code" role="img" aria-label="404">
+      <span aria-hidden="true">4</span>
+      <svg viewBox="0 0 220 260" aria-hidden="true">
+        <ellipse cx="108" cy="104" rx="76" ry="82" fill="none" stroke="currentColor" stroke-width="52"/>
+        <line x1="70" y1="136" x2="148" y2="62" stroke="currentColor" stroke-width="20"/>
+        <line x1="158" y1="178" x2="196" y2="236" stroke="currentColor" stroke-width="34" stroke-linecap="round"/>
+      </svg>
+      <span aria-hidden="true">4</span>
+    </p>
+    <h1 class="sub">NOT FOUND</h1>
+    <p class="msg">We can’t seem to find the page you’re looking for. It may have been moved, renamed, or no longer exists.</p>
+    <div class="actions">
+      <a class="btn solid" href="/">Back to home</a>
+      <a class="btn" href="javascript:history.back()">Go back</a>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
